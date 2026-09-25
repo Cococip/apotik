@@ -1,0 +1,65 @@
+html, body { height: 100%; margin: 0; }
+body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-ink); }
+
+.pos-shell { height: 100vh; display: flex; flex-direction: column; }
+.pos-topbar {
+  height: 56px; display: flex; align-items: center; gap: 12px; padding: 0 16px;
+  border-bottom: 1px solid var(--color-border); background: var(--color-surface); flex-shrink: 0;
+}
+.pos-topbar-title { flex: 1; display: flex; flex-direction: column; line-height: 1.25; font-size: 13px; }
+.pos-content { flex: 1; overflow: hidden; }
+
+.pos-grid { display: grid; grid-template-columns: 1.4fr 1fr; height: 100%; }
+.pos-panel-left { padding: 16px; overflow-y: auto; border-right: 1px solid var(--color-border); }
+.pos-panel-right { padding: 16px; display: flex; flex-direction: column; overflow: hidden; background: var(--color-surface); }
+
+.pos-search-row { display: flex; gap: 8px; margin-bottom: 12px; }
+.pos-category-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.pos-chip {
+  padding: 6px 14px; border-radius: 999px; border: 1px solid var(--color-border);
+  background: var(--color-surface); font-size: 12.5px; cursor: pointer; color: var(--color-ink-muted); font-weight: 600;
+}
+.pos-chip.is-active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+.pos-product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.pos-product-card {
+  border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 10px;
+  cursor: pointer; background: var(--color-surface); text-align: left; display: block; width: 100%;
+}
+.pos-product-card:hover { border-color: var(--color-primary-light); box-shadow: var(--shadow-sm); }
+.pos-product-card.is-disabled { opacity: 0.5; cursor: not-allowed; }
+.pos-product-name { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; min-height: 32px; line-height: 1.3; }
+.pos-product-price { font-size: 13px; font-weight: 700; color: var(--color-primary-dark); }
+.pos-product-stock { font-size: 11px; color: var(--color-ink-muted); margin-top: 3px; }
+
+.pos-cart-list { flex: 1; overflow-y: auto; border: 1px solid var(--color-border); border-radius: var(--radius-md); margin-bottom: 12px; }
+.pos-cart-item { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--color-border); }
+.pos-cart-item:last-child { border-bottom: none; }
+.pos-cart-item-info { flex: 1; min-width: 0; }
+.pos-cart-item-name { font-size: 12.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pos-cart-item-price { font-size: 11.5px; color: var(--color-ink-muted); }
+.pos-qty-control { display: flex; align-items: center; gap: 4px; }
+.pos-qty-control button {
+  width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--color-border);
+  background: var(--color-surface-muted); cursor: pointer; font-weight: 700;
+}
+.pos-qty-control input { width: 40px; text-align: center; border: 1px solid var(--color-border); border-radius: 6px; padding: 3px 2px; font-size: 12.5px; }
+.pos-cart-item-subtotal { width: 92px; text-align: right; font-weight: 700; font-size: 12.5px; }
+.pos-cart-item-remove { color: var(--color-danger); background: none; border: none; cursor: pointer; padding: 2px; }
+
+.pos-summary { border-top: 1px solid var(--color-border); padding-top: 12px; font-size: 13px; }
+.pos-summary-row { display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--color-ink-muted); }
+.pos-summary-row.total { font-size: 18px; font-weight: 800; margin-top: 8px; color: var(--color-ink); }
+
+.pos-empty-cart { text-align: center; padding: 50px 16px; color: var(--color-ink-muted); }
+
+.pos-rx-badge { font-size: 9.5px; font-weight: 700; color: var(--color-warning); background: var(--color-warning-bg); border-radius: 4px; padding: 1px 5px; margin-left: 4px; }
+
+#syncQueueBadge { cursor: pointer; }
+
+@media (max-width: 991px) {
+  .pos-grid { grid-template-columns: 1fr; grid-auto-rows: min-content; height: auto; }
+  .pos-content { overflow-y: auto; }
+  .pos-panel-left { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .pos-panel-right { min-height: 400px; }
+}

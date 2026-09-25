@@ -1,0 +1,16 @@
+{
+  "name": "ApotekCare - Sistem Manajemen Apotek",
+  "short_name": "ApotekCare",
+  "description": "Sistem manajemen apotek profesional: obat, stok, batch, barcode, dan laporan.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F8FBFF",
+  "theme_color": "#2563A6",
+  "lang": "id",
+  "icons": [
+    { "src": "/assets/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

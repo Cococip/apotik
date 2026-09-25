@@ -1,0 +1,8 @@
+-- Phase 2+ additions: atomic invoice numbering (§10, uses SELECT ... FOR UPDATE
+-- inside a transaction so concurrent cashiers never collide).
+SET NAMES utf8mb4;
+
+CREATE TABLE IF NOT EXISTS invoice_counters (
+    counter_date DATE NOT NULL PRIMARY KEY,
+    last_number INT UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
